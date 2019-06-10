@@ -20,7 +20,6 @@ export class RecipeListComponent implements OnInit {
     this.subscription = this.recipeService.getRecipes().subscribe(recipes => {
       this.isFetching = false;
       this.recipes = recipes;
-      console.log(recipes);
     });
   }
 }

@@ -1,11 +1,3 @@
-<hr />
-<div class="row">
-  <div class="col-md-12">
-    <button class="btn btn-primary">Add New Recipe</button>
-  </div>
-</div>
-<hr />
-
 <p *ngIf="recipes.length < 1 && !isFetching">No recipes yet</p>
 <div *ngIf="recipes.length >= 1 && !isFetching">
   <app-recipe-item

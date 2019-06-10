@@ -1,0 +1,159 @@
+<form>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-4">
+        <h5 class="card-header">Edit Recipe Information</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-6">
+              <label for="formGroupExampleInput">Recipe Descriptions</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Example input"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="formGroupPrep">Prepare Time</label>
+              <input type="text" class="form-control" id="formGroupPrep" placeholder="0" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="formGroupCook">Cook Time</label>
+              <input type="text" class="form-control" id="formGroupCook" placeholder="0" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputDiff">Difficulty</label>
+              <select id="inputDiff" class="form-control">
+                <option selected>EASY</option>
+                <option>MODERATE</option>
+                <option>KIND_OF_HARD</option>
+                <option>HARD</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="formGroupServing">Servings</label>
+              <input type="text" class="form-control" id="formGroupServing" placeholder="0" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="formGroupSource">Source</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupSource"
+                placeholder="Simple Recipes"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="formGroupUrl">URL</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupUrl"
+                placeholder="https://exmaple.com"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-4">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h5>Add Recipe Ingredient</h5>
+            </div>
+            <div class="col text-right">
+              <button class="btn btn-primary text-right">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-4">
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupIngredientDesc"
+                placeholder="fresh lime juice or lemon juice"
+              />
+            </div>
+            <div class="form-group col-4">
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupingredientAmount"
+                placeholder="amount: 2"
+              />
+            </div>
+            <div class="form-group col-4">
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupUom"
+                placeholder="Unit of Measure: Dash"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-4">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h5>Directions</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-12">
+              <div class="form-group">
+                <textarea class="form-control" id="formControlTextarea" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <div class="card mt-4">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h5>Notes</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-12">
+              <div class="form-group">
+                <textarea class="form-control" id="formControlTextarea" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
