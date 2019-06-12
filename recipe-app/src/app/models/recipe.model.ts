@@ -8,8 +8,8 @@ export class Recipe {
   public description: string;
   public prepTime: number;
   public cookTime: number;
-  public source: string;
   public servings: number;
+  public source: string;
   public url: string;
   public difficulty: Difficulty;
   public categories: Category[];

@@ -10,9 +10,15 @@
               <input
                 type="text"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid': description.invalid && (description.dirty || description.touched)
+                }"
                 placeholder="Example input"
                 formControlName="description"
               />
+              <div class="invalid-feedback">
+                Please provide description.
+              </div>
             </div>
             <div class="form-group col-12 col-md-4">
               <label for="formControlFile1">Upload image</label>
@@ -36,11 +42,33 @@
           <div class="row">
             <div class="form-group col-md-4">
               <label for="formGroupPrep">Prepare Time</label>
-              <input type="text" class="form-control" placeholder="0" formControlName="prepTime" />
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': prepTime.invalid && (prepTime.dirty || prepTime.touched)
+                }"
+                placeholder="0"
+                formControlName="prepTime"
+              />
+              <div class="invalid-feedback">
+                must be greater than or equal to 1.
+              </div>
             </div>
             <div class="form-group col-md-4">
               <label for="formGroupCook">Cook Time</label>
-              <input type="text" class="form-control" placeholder="0" formControlName="cookTime" />
+              <input
+                type="text"
+                [ngClass]="{
+                  'is-invalid': cookTime.invalid && (cookTime.dirty || cookTime.touched)
+                }"
+                class="form-control"
+                placeholder="0"
+                formControlName="cookTime"
+              />
+              <div class="invalid-feedback">
+                must be greater than or equal to 1.
+              </div>
             </div>
             <div class="form-group col-md-4">
               <label for="inputDiff">Difficulty</label>
@@ -55,8 +83,20 @@
           <div class="row">
             <div class="form-group col-md-4">
               <label for="formGroupServing">Servings</label>
-              <input type="text" class="form-control" placeholder="0" formControlName="servings" />
+              <input
+                type="text"
+                [ngClass]="{
+                  'is-invalid': servings.invalid && (servings.dirty || servings.touched)
+                }"
+                class="form-control"
+                placeholder="0"
+                formControlName="servings"
+              />
+              <div class="invalid-feedback">
+                must be greater than or equal to 1.
+              </div>
             </div>
+
             <div class="form-group col-md-4">
               <label for="formGroupSource">Source</label>
               <input
@@ -66,14 +106,21 @@
                 formControlName="source"
               />
             </div>
+
             <div class="form-group col-md-4">
               <label for="formGroupUrl">URL</label>
               <input
                 type="text"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid': url.invalid && (url.dirty || url.touched)
+                }"
                 placeholder="https://exmaple.com"
                 formControlName="url"
               />
+              <div class="invalid-feedback">
+                must be a valid URL.
+              </div>
             </div>
           </div>
         </div>
@@ -109,17 +156,32 @@
             *ngFor="let ingredient of ingredients.controls; let i = index"
             [formGroup]="ingredient"
           >
-            <div class="form-group col-1">
-              <input type="text" class="form-control" placeholder="0" formControlName="amount" />
+            <div class="form-group col-2">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    ingredient.get('amount').invalid &&
+                    (ingredient.get('amount').dirty || ingredient.get('amount').touched)
+                }"
+                placeholder="0"
+                formControlName="amount"
+              />
+              <div class="invalid-feedback">
+                must be greater than or equal to 1.
+              </div>
             </div>
-            <div class="form-group col-3">
+
+            <div class="form-group col-2">
               <select class="form-control" formControlName="uom">
                 <option *ngFor="let unitOfMeasure of unitOfMeasureEnum" [ngValue]="unitOfMeasure">{{
                   unitOfMeasure
                 }}</option>
               </select>
             </div>
-            <div class="form-group col-7">
+
+            <div class="form-group col">
               <input
                 type="text"
                 class="form-control"
@@ -141,7 +203,17 @@
           <div class="row">
             <div class="form-group col-12">
               <div class="form-group">
-                <textarea class="form-control" rows="4" formControlName="directions"></textarea>
+                <textarea
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': directions.invalid && (directions.dirty || directions.touched)
+                  }"
+                  rows="4"
+                  formControlName="directions"
+                ></textarea>
+                <div class="invalid-feedback">
+                  Please provide directions.
+                </div>
               </div>
             </div>
           </div>
@@ -164,7 +236,9 @@
           </div>
           <div class="row">
             <div class="col text-right">
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <button type="submit" class="btn btn-primary mr-2" [disabled]="!recipeForm.valid">
+                Submit
+              </button>
               <button type="button" class="btn btn-danger">Cancel</button>
             </div>
           </div>
