@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
   isFetching = false;
+  searchTerm: string;
   subscription: Subscription;
 
   constructor(private recipeService: RecipeService) {}

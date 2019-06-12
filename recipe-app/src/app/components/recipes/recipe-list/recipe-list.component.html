@@ -1,7 +1,14 @@
 <p *ngIf="recipes.length < 1 && !isFetching">No recipes yet</p>
 <div *ngIf="recipes.length >= 1 && !isFetching">
+  <input
+    class="form-control-lg"
+    type="search"
+    aria-label="Search"
+    [(ngModel)]="searchTerm"
+    placeholder="search..."
+  />
   <app-recipe-item
-    *ngFor="let recipeEl of recipes; let i = index"
+    *ngFor="let recipeEl of recipes | filterPipe: searchTerm; let i = index"
     [recipe]="recipeEl"
     [index]="i"
   ></app-recipe-item>

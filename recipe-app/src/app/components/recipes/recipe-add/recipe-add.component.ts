@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import { Category } from './../../../models/category.model';
 import { Difficulty } from './../../../models/difficulty.model';
@@ -21,7 +22,11 @@ export class RecipeAddComponent implements OnInit {
   difficultyEnum = Difficulty.difficulties;
   unitOfMeasureEnum = UnitOfMeasure.unitOfMeasures;
 
-  constructor(private fb: FormBuilder, private recipeService: RecipeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private recipeService: RecipeService,
+    private location: Location
+  ) {}
 
   ngOnInit() {
     this.createForm();
@@ -57,9 +62,20 @@ export class RecipeAddComponent implements OnInit {
   /**
    * the submit button click
    */
-  onSubmit() {
-    console.log(this.recipeForm.value);
-    this.recipeService.addRecipe(this.recipeForm.value);
+  onSubmit(event: MouseEvent) {
+    if (!this.recipeForm.valid) {
+      console.error('please correct error');
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      console.log(this.recipeForm.value);
+      this.recipeService.addRecipe(this.recipeForm.value);
+      this.location.back();
+    }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
   get description() {

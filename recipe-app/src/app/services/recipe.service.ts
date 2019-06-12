@@ -25,4 +25,8 @@ export class RecipeService {
     };
     return this.http.post(this.BASE_URL, requestBody).subscribe(res => console.log(res));
   }
+
+  public removeRecipe(recipeId: string) {
+    this.http.delete(`${this.BASE_URL}/${recipeId}`).subscribe(res => console.log(res));
+  }
 }

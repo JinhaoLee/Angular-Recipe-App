@@ -13,6 +13,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-item/recipe-item.component';
 import { RecipeAddComponent } from './components/recipes/recipe-add/recipe-add.component';
+import { FilterPipePipe } from './shared/pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RecipeAddComponent } from './components/recipes/recipe-add/recipe-add.c
     RecipesComponent,
     RecipeListComponent,
     RecipeItemComponent,
-    RecipeAddComponent
+    RecipeAddComponent,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
