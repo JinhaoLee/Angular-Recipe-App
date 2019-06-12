@@ -17,4 +17,12 @@ export class RecipeService {
       .get<{ recipes: Recipe[] }>(this.BASE_URL)
       .pipe(map(response => response.recipes));
   }
+
+  public addRecipe(recipe: Recipe) {
+    const requestBody = {
+      ...recipe,
+      notes: { recipeNotes: recipe.notes }
+    };
+    return this.http.post(this.BASE_URL, requestBody).subscribe(res => console.log(res));
+  }
 }

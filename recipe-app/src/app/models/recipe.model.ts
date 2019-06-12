@@ -1,6 +1,7 @@
 import { Category } from './category.model';
-import { Ingredient } from './ingredients.model';
+import { Ingredient } from './ingredient.model';
 import { Notes } from './notes.model';
+import { Difficulty } from './difficulty.model';
 
 export class Recipe {
   public name: string;
@@ -9,14 +10,10 @@ export class Recipe {
   public cookTime: number;
   public source: string;
   public servings: number;
-  public difficulty: string;
+  public url: string;
+  public difficulty: Difficulty;
   public categories: Category[];
   public ingredients: Ingredient[];
   public notes: Notes;
   public image: string;
-
-  constructor(name: string, description: string) {
-    this.name = name;
-    this.description = description;
-  }
 }
